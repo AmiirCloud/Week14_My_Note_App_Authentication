@@ -9,7 +9,6 @@ function Notes() {
 
   const { data: notes = [], status, error } = useGetNotesQuery();
   const [deleteNote] = useDeleteNoteMutation();
-  console.log(notes)
 
   const deleteNoteHandler = (id) => {
     deleteNote(id);

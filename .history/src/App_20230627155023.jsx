@@ -10,32 +10,32 @@ function App() {
 
   return (
     <>
-        <div className="bg-white text-black mt-5 flex justify-end items-center shadow-full p-2">
+        <div className="bg-white text-black mt-5 flex justify-end items-center shadow-lg p-2">
         <ul className="flex items-center">
     <li className="mr-6">
-      <Link to="/login" class="text-black hover:text-blue-800" href="#">login</Link>
+      <Link class="text-black hover:text-blue-800" href="#">login</Link>
     </li>
     <li className="mr-6">
-      <Link to="/profile" class="text-black hover:text-blue-800" href="#">Profile</Link>
+      <Link class="text-black hover:text-blue-800" href="#">Profile</Link>
     </li>
     <li className="mr-6">
-      <Link to="/logout" class="text-black hover:text-blue-800" href="#">logout</Link>
+      <Link class="text-black hover:text-blue-800" href="#">logout</Link>
     </li>
     <li className="mr-6">
-      <Link to="/add" class="text-black hover:text-blue-800" href="#">add</Link>
+      <Link class="text-gray-100 hover:text-blue-800" href="#">Active</Link>
     </li>
  
   
   </ul>
         </div>
-    <div className="bg-gray-200 min-h-screen flex">
+    <div className="bg-blue-600 min-h-screen flex">
       <div className="w-full">
         <div className="flex flex-col items-center">
           <h3 className="text-3xl text-white mb-5 mt-5"></h3>
-       
+            <Navigation/>
           <Routes>
           {window.location.pathname === "/" && (
-            <Route path="/login" element={<AddNote />} />
+            <Route path="/" element={<AddNote />} />
           ) } else {
             <Route path="/edit/:id" element={<EditNote />} />
           }

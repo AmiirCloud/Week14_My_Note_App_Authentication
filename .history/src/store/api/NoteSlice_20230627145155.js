@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const noteApi = createApi({
     reducerPath: 'noteApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://notes-60by.onrender.com' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:9000' }),
     tagTypes: ['Note'],
     endpoints: (builder) => ({
         getNotes: builder.query({

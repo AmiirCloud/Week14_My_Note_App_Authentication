@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const noteApi = createApi({
     reducerPath: 'noteApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://notes-60by.onrender.com' }),
+    baseQuery: fetchBaseQuery({ baseUrl: '//notes-60by.onrender.com' }),
     tagTypes: ['Note'],
     endpoints: (builder) => ({
         getNotes: builder.query({
@@ -11,7 +11,7 @@ export const noteApi = createApi({
         }),
         addNote: builder.mutation({
             query: (body) => ({
-                url: 'create_note',
+                url: '/create_note',
                 method: 'POST',
                 body,
             }),

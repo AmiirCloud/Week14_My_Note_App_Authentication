@@ -22,7 +22,7 @@ function App() {
       <Link to="/logout" class="text-black hover:text-blue-800" href="#">logout</Link>
     </li>
     <li className="mr-6">
-      <Link to="/add" class="text-black hover:text-blue-800" href="#">add</Link>
+      <Link to="/add" class="text-black hover:text-blue-800" href="#">Active</Link>
     </li>
  
   
@@ -35,7 +35,7 @@ function App() {
        
           <Routes>
           {window.location.pathname === "/" && (
-            <Route path="/login" element={<AddNote />} />
+            <Route path="/" element={<AddNote />} />
           ) } else {
             <Route path="/edit/:id" element={<EditNote />} />
           }

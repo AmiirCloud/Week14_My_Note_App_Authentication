@@ -35,7 +35,7 @@ function App() {
        
           <Routes>
           {window.location.pathname === "/" && (
-            <Route path="/login" element={<AddNote />} />
+            <Route path="/" element={<AddNote />} />
           ) } else {
             <Route path="/edit/:id" element={<EditNote />} />
           }
