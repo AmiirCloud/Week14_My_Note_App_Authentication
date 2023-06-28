@@ -1,37 +1,39 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAddNoteMutation } from '../store/api/NoteSlice';
-import { useNavigate } from 'react-router-dom';
+import { useLoginMutation } from '../../store/api/AuthSlice';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const AddNote = () => {
 
-  const [addNote ] = useAddNoteMutation();
-  const navigate   = useNavigate()
+const Login = () => {
+  const navigate  = useNavigate()
+  const [login] = useLoginMutation()
+
+
 
   const initialValues = {
-    title: '',
-    content: '',
+    email: '',
+    password: '',
   };
 
   const validationSchema = Yup.object({
-    title: Yup.string().required('Title is required'),
-    content: Yup.string().required('Content is required'),
+    email: Yup.string().required('email is required'),
+    password: Yup.string().required('password is required'),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, { resetForm }) => {
     // Send the data to the server (localhost:9000/create_note)
     console.log(values);
-    addNote({
-      title: values.title,
-      content: values.content,
+    login({
+      email: values.email,
+      password: values.password,
     }).unwrap().then(()=>{
       navigate("/")
-      window.location.reload()
-    });
+    })
     
 
-    
+    // Reset the form after submission
+    resetForm();
   };
 
   return (
@@ -44,30 +46,31 @@ const AddNote = () => {
         <Form>
           <div className="mb-5">
             <Field
-              type="text"
-              id="title"
-              name="title"
-              placeholder="Title"
+              type="email"
+              name="email"
+              placeholder="Enter Gmail"
               className="border border-gray-300 shadow p-3 w-full rounded mb-"
             />
-            <ErrorMessage name="title" component="div" className="text-red-500" />
+            <ErrorMessage name="email" component="div" className="text-red-500" />
           </div>
 
           <div className="mb-5">
+      
             <Field
-              as="textarea"
-              name="content"
-              placeholder="Body"
+           
+              type="password"
+              name="password"
+              placeholder="Enter Passwrod"
               className="border border-gray-300 shadow p-3 w-full rounded mb-"
             />
-            <ErrorMessage name="content" component="div" className="text-red-500" />
+            <ErrorMessage name="password" component="div" className="text-red-500" />
           </div>
 
           <button
             type="submit"
             className="block w-full bg-blue-400 text-white font-bold p-4 rounded-lg hover:bg-yellow-500"
           >
-            Add Note
+            Login
           </button>
         </Form>
       </Formik>
@@ -75,4 +78,4 @@ const AddNote = () => {
   );
 };
 
-export default AddNote;
+export default Login;

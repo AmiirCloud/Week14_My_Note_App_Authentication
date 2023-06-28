@@ -41,9 +41,12 @@ const EditNote = () => {
     updateNote({
       id: Number(params.id),
       updatedNote: values,
+    }).unwrap().then(()=>{
+      navigate("/")
+      window.location.reload()
     })
 
-    navigate("/");
+    // navigate("/");
     
   };
 
