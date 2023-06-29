@@ -86,6 +86,7 @@ const handleLogOut  = ()=>{
             <Route path="/login"element={<Login/> }></Route>
             <Route path="/addNote" element={<PrivateRoute/>}>
             <Route path="/addNote" element={<AddNote />} />
+
             </Route>
             <Route path="/profile" element={<Profile />}> 
             <Route  path="/profile" element={<Profile/>} />
